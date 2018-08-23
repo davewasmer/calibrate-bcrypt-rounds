@@ -1,23 +1,7 @@
 version: 2
 jobs:
 
-  
-  test_node_6:
-    docker:
-      - image: circleci/node:6
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
-  
+
   test_node_8:
     docker:
       - image: circleci/node:8
@@ -33,7 +17,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-  
+
   test_node_10:
     docker:
       - image: circleci/node:10
@@ -49,7 +33,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-  
+
 
   release:
     docker:
@@ -73,19 +57,9 @@ workflows:
   test_and_release:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
-      
-      - test_node_6
-      
       - test_node_8
-      
       - test_node_10
-      
       - release:
           requires:
-            
-            - test_node_6
-            
             - test_node_8
-            
             - test_node_10
-            
