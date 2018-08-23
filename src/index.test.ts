@@ -5,6 +5,8 @@ import { range, times } from 'lodash';
 const thresholds = range(100, 500, 100);
 const iterations = 5;
 
+jest.setTimeout(30000);
+
 thresholds.forEach((threshold) => {
   test(`returns the number of rounds needed to result in a minimum hashing time of ${ threshold }`, async () => {
     let rounds = await calibrate(bcrypt, threshold * 1.25);
