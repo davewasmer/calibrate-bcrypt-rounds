@@ -12,7 +12,6 @@ module.exports = {
       lines: 80
     }
   },
-  globalSetup: './bin/clear-test-db',
   globals: {
     "ts-jest": {
       "tsConfigFile": "tsconfig.json"
