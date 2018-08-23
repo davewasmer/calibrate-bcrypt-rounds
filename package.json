@@ -1,0 +1,31 @@
+{
+  "name": "calibrate-bcrypt-rounds",
+  "version": "0.0.0-development",
+  "description": "Calculate bcrypt rounds on the fly rather than hardcoding a specific number",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "yarn lint && jest",
+    "lint": "tslint",
+    "semantic-release": "semantic-release",
+    "commitmsg": "commitlint -E GIT_PARAMS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davewasmer/calibrate-bcrypt-rounds.git"
+  },
+  "author": "Dave Wasmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davewasmer/calibrate-bcrypt-rounds/issues"
+  },
+  "homepage": "https://github.com/davewasmer/calibrate-bcrypt-rounds#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "husky": "^0.14.3",
+    "jest": "^23.5.0",
+    "semantic-release": "^15.9.9",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  }
+}
