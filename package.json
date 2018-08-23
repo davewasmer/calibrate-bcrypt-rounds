@@ -9,6 +9,9 @@
     "semantic-release": "semantic-release",
     "commitmsg": "commitlint -E GIT_PARAMS"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/davewasmer/calibrate-bcrypt-rounds.git"
