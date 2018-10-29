@@ -1,6 +1,8 @@
-import * as bcryptLike from 'bcryptjs';
+interface BcryptLike {
+  hash(value: string, rounds: number): Promise<any>;
+}
 
-export default async function calibrateBcryptRounds(bcrypt: typeof bcryptLike, minimumTime: number) {
+export default async function calibrateBcryptRounds(bcrypt: BcryptLike, minimumTime: number) {
   let timeTaken = 0;
   let rounds = 1;
   while (timeTaken < minimumTime) {

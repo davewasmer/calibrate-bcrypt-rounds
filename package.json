@@ -25,7 +25,6 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
-    "@types/bcrypt": "^2.0.0",
     "@types/bcryptjs": "^2.4.1",
     "@types/lodash": "^4.14.116",
     "bcryptjs": "^2.4.3",
