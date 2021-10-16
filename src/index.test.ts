@@ -1,9 +1,12 @@
-import calibrate from './index';
-import bcrypt from 'bcryptjs';
-import { range, times } from 'lodash';
+import rewire from "rewire"
+import calibrate from "./index"
+import bcrypt from "bcryptjs"
+import { range, times } from "lodash"
 
-const thresholds = range(100, 500, 100);
-const iterations = 5;
+const index = rewire("./index")
+const calibrateBcryptRounds = index.__get__("calibrateBcryptRounds")
+const thresholds = range(100, 500, 100)
+const iterations = 5
 
 jest.setTimeout(30000);
 
@@ -24,3 +27,30 @@ async function time(fn: () => void | Promise<void>) {
   await fn();
   return Date.now() - start;
 }
+
+// @ponicode
+describe("calibrateBcryptRounds", () => {
+    test("0", async () => {
+        await calibrateBcryptRounds({}, 100)
+    })
+
+    test("1", async () => {
+        await calibrateBcryptRounds({}, -5.48)
+    })
+
+    test("2", async () => {
+        await calibrateBcryptRounds({}, 0)
+    })
+
+    test("3", async () => {
+        await calibrateBcryptRounds({}, 1)
+    })
+
+    test("4", async () => {
+        await calibrateBcryptRounds({}, -100)
+    })
+
+    test("5", async () => {
+        await calibrateBcryptRounds({}, -Infinity)
+    })
+})
